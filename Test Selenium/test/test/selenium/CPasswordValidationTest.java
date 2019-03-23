@@ -31,32 +31,44 @@ public class CPasswordValidationTest extends CWebDriver{
     }
     
     @Test
-    public void PasswordValidate()
+    public void InputValidPassword()
     {
         WebElement testingElement = driver.findElement(By.id("newPassword"));
         testingElement.clear();
-        testingElement.sendKeys("Selenium");
+        testingElement.sendKeys("123456Qq");
          
         WebElement checkedElement = driver.findElement(By.xpath("//input[@id='newPassword']/.."));
-         
-        System.out.print(checkedElement.getAttribute("outerHTML")); 
-        assertTrue(checkedElement.getAttribute("class").contains("rui-Input-error"));
+        assertFalse(checkedElement.getAttribute("class").contains("rui-Input-error"));
     }
     
     @Test
-    public void PasswordValidate_1()
+    public void InputSpaceOnly()
     {
         WebElement testingElement = driver.findElement(By.id("newPassword"));
         testingElement.clear();
-        testingElement.sendKeys("Selenium");
+        testingElement.sendKeys(" ");
          
         WebElement checkedElement = driver.findElement(By.xpath("//input[@id='newPassword']/.."));
          
-        System.out.print(checkedElement.getAttribute("outerHTML")); 
-        assertFalse(checkedElement.getAttribute("class").contains("rui-Input-error"));
-
+        assertTrue(checkedElement.getAttribute("class").contains("rui-Input-error"));
     }
     
+    
+    @Test
+    public void InputEmptyString()
+    {
+        WebElement testingElement = driver.findElement(By.id("newPassword"));
+        testingElement.clear();
+        
+        WebElement switchFocusElement = driver.findElement(By.id("newPassword"));
+        switchFocusElement.sendKeys(" ");
+        switchFocusElement.clear();
+         
+        WebElement checkedElement = driver.findElement(By.xpath("//input[@id='newPassword']/.."));   
+        System.out.print(checkedElement.getAttribute("outerHTML"));
+        assertTrue(checkedElement.getAttribute("class").contains("rui-Input-error"));
+
+    }
     
     @AfterClass
     public static void CloseTestEnviroment()
