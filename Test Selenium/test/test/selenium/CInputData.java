@@ -18,11 +18,17 @@ public class CInputData
     protected static String checkingClassString = "rui-Input-error";
     protected static String checkingClassXpathString = "//input[@id='newPassword']/..";   
     
-    protected static String[] inputData = 
+    protected static String[] inputValidData = 
     {
         "123456Qq",
         "PassWord123",
-        "cnwjUt5u!nrhvH",
-        "32rd43f"
+        "cnwjUt5u!nrhvH"
+    };
+    
+    protected static String[] inputInvalidData = 
+    {
+        " ",
+        "32rd43f",
+        "fwkb475"
     };
 }

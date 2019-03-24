@@ -36,27 +36,53 @@ public class CPasswordValidationTest extends CWebDriver{
     }
     
     @Test
-    public void InputValidPassword() throws InterruptedException
+    public void InputValidPassword()
     {
-        System.out.print("Testing valid passwords:\n");
-        for(String input : data.inputData)
-        {
-           
-            testingElement.sendKeys(input);
-            System.out.print("\t" + input + "\n");
-            checkedElement = driver.findElement(By.xpath(data.checkingClassXpathString));
-            assertFalse(input,checkedElement.getAttribute(data.checkingAttribute).contains(data.checkingClassString));
-            
+        boolean testIsFailed = false;
+        System.out.print("Testing valid passwords...\n");
+        for(String input : data.inputValidData)
+        {                 
+            testingElement.click();
             testingElement.clear();
+            testingElement.sendKeys(input);
+            
+            checkedElement = driver.findElement(By.xpath(data.checkingClassXpathString));
+            if(checkedElement.getAttribute(data.checkingAttribute).contains(data.checkingClassString))
+            {
+                testIsFailed = true;
+                System.out.print("Error: " + testingElement.getAttribute("value")+ "\n");
+            }
+            
+            testingElement.click();
+            testingElement.clear();           
         }
+        
+        assertFalse(testIsFailed);
     }
     
     @Test
     public void InputInvalidPassword()
     {
-        testingElement.sendKeys(" ");
-        checkedElement = driver.findElement(By.xpath(data.checkingClassXpathString));
-        assertTrue(checkedElement.getAttribute(data.checkingAttribute).contains(data.checkingClassString));
+        boolean testIsFailed = false;
+        System.out.print("Testing Invalid passwords...\n");
+        for(String input : data.inputInvalidData)
+        {                 
+            testingElement.click();
+            testingElement.clear();
+            testingElement.sendKeys(input);
+            
+            checkedElement = driver.findElement(By.xpath(data.checkingClassXpathString));
+            if(!checkedElement.getAttribute(data.checkingAttribute).contains(data.checkingClassString))
+            {
+                testIsFailed = true;
+                System.out.print("Error: " + testingElement.getAttribute("value")+ "\n");
+            }
+            
+            testingElement.click();
+            testingElement.clear();           
+        }
+        
+        assertFalse(testIsFailed);
     }
     
     
