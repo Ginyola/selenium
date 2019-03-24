@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="DESKTOP-CIP3BEM" name="test.selenium.CPasswordValidationTest" skipped="0" tests="3" time="8.931" timestamp="2019-03-24T08:45:56">
+<testsuite errors="0" failures="0" hostname="DESKTOP-CIP3BEM" name="testDomainValidation.CDomainValidationTest" skipped="0" tests="5" time="23.7" timestamp="2019-03-24T16:57:07">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="nb.wait.for.caches" value="true" />
@@ -41,7 +41,7 @@
     <property name="user.name" value="Костя" />
     <property name="copylibs.rebase" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner test.selenium.CPasswordValidationTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\git\selenium\Test Selenium\build\test\results\TEST-test.selenium.CPasswordValidationTest.xml crashfile=C:\git\selenium\Test Selenium\build\junitvmwatcher2958504423210031167.properties propsfile=C:\git\selenium\Test Selenium\build\junit3304735626994550408.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testDomainValidation.CDomainValidationTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\git\selenium\Test Selenium\build\test\results\TEST-testDomainValidation.CDomainValidationTest.xml crashfile=C:\git\selenium\Test Selenium\build\junitvmwatcher8866933513510927522.properties propsfile=C:\git\selenium\Test Selenium\build\junit3404478625045429095.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="jnlp.descriptor" value="application" />
@@ -201,6 +201,7 @@
     <property name="jnlp.dest.dir" value="C:\git\selenium\Test Selenium\dist" />
     <property name="dist.jar" value="dist/Test_Selenium.jar" />
     <property name="libs.spring-framework400.maven-pom" value="" />
+    <property name="netbeans.automatic.build" value="true" />
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
     <property name="ant.project.name" value="Test_Selenium" />
     <property name="netbeans.hash.code" value="unique=NB_EXTIDE_JAVA01180368e-e6c9-4dd7-beec-4005f636faa0_e183646f-fcff-4ccd-9518-7b33d6f6fae9" />
@@ -294,8 +295,8 @@
     <property name="sun.desktop" value="windows" />
     <property name="libs.hibernate4-persistence.src" value="" />
     <property name="libs.hibernate4-support.maven-pom" value="" />
-    <property name="nb.internal.action.name" value="test" />
     <property name="libs.JAXB-ENDORSED.classpath" value="C:\Program Files\NetBeans 8.0.2\ide\modules\ext\jaxb\api\jaxb-api.jar" />
+    <property name="nb.internal.action.name" value="test" />
     <property name="libs.eclipselink.classpath" value="C:\Program Files\NetBeans 8.0.2\java\modules\ext\eclipselink\eclipselink.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.jpql_2.5.2.v20140319-9ad6abd.jar" />
     <property name="libs.beans-binding.javadoc" value="C:\Program Files\NetBeans 8.0.2\java\docs\beansbinding-1.2.1-doc.zip" />
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
@@ -308,8 +309,8 @@
     <property name="libs.JAXB-ENDORSED.src" value="" />
     <property name="dist.archive.excludes" value="" />
     <property name="libs.testng.javadoc" value="C:\Program Files\NetBeans 8.0.2\platform\docs\testng-6.8.1-javadoc.zip" />
-    <property name="user.script" value="" />
     <property name="libs.PostgreSQLDriver.classpath" value="C:\Program Files\NetBeans 8.0.2\ide\modules\ext\postgresql-9.2-1002.jdbc4.jar" />
+    <property name="user.script" value="" />
     <property name="jnlp.signing" value="" />
     <property name="libs.hibernate4-persistencemodelgen.classpath" value="C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\hibernate-jpamodelgen-4.3.1.Final.jar" />
     <property name="annotation.processing.source.output" value="build/generated-sources/ap-source-output" />
@@ -325,16 +326,18 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
   </properties>
-  <testcase classname="test.selenium.CPasswordValidationTest" name="InputEmptyString" time="0.247" />
-  <testcase classname="test.selenium.CPasswordValidationTest" name="InputValidPassword" time="0.892" />
-  <testcase classname="test.selenium.CPasswordValidationTest" name="InputInvalidPassword" time="0.763" />
-  <system-out><![CDATA[Testing valid passwords...
-Testing Invalid passwords...
+  <testcase classname="testDomainValidation.CDomainValidationTest" name="SpaceIsTrimmed" time="0.162" />
+  <testcase classname="testDomainValidation.CDomainValidationTest" name="InputInvalidDomain" time="13.959" />
+  <testcase classname="testDomainValidation.CDomainValidationTest" name="InputEmptyString" time="0.077" />
+  <testcase classname="testDomainValidation.CDomainValidationTest" name="DomainComboboxClick" time="0.101" />
+  <testcase classname="testDomainValidation.CDomainValidationTest" name="InputValidDomain" time="2.757" />
+  <system-out><![CDATA[Testing invalid mail login...
+Testing valid mail login...
 ]]></system-out>
-  <system-err><![CDATA[Starting ChromeDriver 73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72) on port 31786
+  <system-err><![CDATA[Starting ChromeDriver 73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72) on port 36040
 Only local connections are allowed.
 Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code.
-мар 24, 2019 11:45:59 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+мар 24, 2019 7:57:10 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: OSS
 ]]></system-err>
 </testsuite>

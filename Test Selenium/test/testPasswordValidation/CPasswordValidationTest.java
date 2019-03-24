@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package test.selenium;
+package testPasswordValidation;
 
+import java.util.concurrent.TimeUnit;
 import org.junit.*;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,12 +19,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
  * Поправить чек-лист. Подсказка с планшетом
  * @author Костя
  */
-public class CPasswordValidationTest extends CWebDriver{
+public class CPasswordValidationTest extends CWebDriver
+{
     
     private static WebDriver driver = null;
     private static WebElement testingElement = null;
     private static WebElement checkedElement = null;
-    private static final CInputData data = new CInputData();
+    private static final CInputDataPassword data = new CInputDataPassword();
     
     @BeforeClass
     public static void PrepareTestEnviroment()
@@ -40,21 +43,18 @@ public class CPasswordValidationTest extends CWebDriver{
     {
         boolean testIsFailed = false;
         System.out.print("Testing valid passwords...\n");
-        for(String input : data.inputValidData)
+        for(String input : data.inputValidPasswordData)
         {                 
-            testingElement.click();
-            testingElement.clear();
+            testingElement.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+            testingElement.sendKeys(Keys.BACK_SPACE);
             testingElement.sendKeys(input);
-            
-            checkedElement = driver.findElement(By.xpath(data.checkingClassXpathString));
+
+            checkedElement = driver.findElement(By.xpath(data.checkingClassPasswordXpathString));
             if(checkedElement.getAttribute(data.checkingAttribute).contains(data.checkingClassString))
             {
                 testIsFailed = true;
                 System.out.print("Error: " + testingElement.getAttribute("value")+ "\n");
             }
-            
-            testingElement.click();
-            testingElement.clear();           
         }
         
         assertFalse(testIsFailed);
@@ -64,22 +64,19 @@ public class CPasswordValidationTest extends CWebDriver{
     public void InputInvalidPassword()
     {
         boolean testIsFailed = false;
-        System.out.print("Testing Invalid passwords...\n");
-        for(String input : data.inputInvalidData)
+        System.out.print("Testing invalid passwords...\n");
+        for(String input : data.inputInvalidPasswordData)
         {                 
-            testingElement.click();
-            testingElement.clear();
+            testingElement.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+            testingElement.sendKeys(Keys.BACK_SPACE);
             testingElement.sendKeys(input);
             
-            checkedElement = driver.findElement(By.xpath(data.checkingClassXpathString));
+            checkedElement = driver.findElement(By.xpath(data.checkingClassPasswordXpathString));
             if(!checkedElement.getAttribute(data.checkingAttribute).contains(data.checkingClassString))
             {
                 testIsFailed = true;
                 System.out.print("Error: " + testingElement.getAttribute("value")+ "\n");
-            }
-            
-            testingElement.click();
-            testingElement.clear();           
+            }          
         }
         
         assertFalse(testIsFailed);
@@ -92,7 +89,7 @@ public class CPasswordValidationTest extends CWebDriver{
         testingElement.sendKeys(" ");
         testingElement.clear();
          
-        checkedElement = driver.findElement(By.xpath(data.checkingClassXpathString));   
+        checkedElement = driver.findElement(By.xpath(data.checkingClassPasswordXpathString));   
         assertTrue(checkedElement.getAttribute(data.checkingAttribute).contains(data.checkingClassString));
     }
     
@@ -100,6 +97,7 @@ public class CPasswordValidationTest extends CWebDriver{
     public void CleanAfterTest()
     {
         testingElement.clear();
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
     }
     
     @AfterClass

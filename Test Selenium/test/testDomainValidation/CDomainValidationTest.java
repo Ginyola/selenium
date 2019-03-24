@@ -103,6 +103,23 @@ public class CDomainValidationTest extends CWebDriver
         assertTrue("space", checkedElement.getAttribute(data.checkingAttribute).contains(data.checkingClassString));
     }
     
+    @Test
+    public void SpaceIsTrimmed()
+    {   
+        testingElement.click();
+        testingElement.sendKeys("    ");
+        
+        checkedElement = driver.findElement(By.xpath(data.checkingClassDomainXpathString));   
+        assertFalse("space trim", checkedElement.getAttribute(data.checkingAttribute).contains(data.checkingClassString));     
+    }
+    
+    @Test
+    public void DomainComboboxClick()
+    {   
+        WebElement element = driver.findElement(By.xpath("//input[@value='@rambler.ru']"));      
+        element.click();
+    }
+    
     @After
     public void CleanAfterTest()
     {
