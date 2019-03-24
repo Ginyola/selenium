@@ -26,6 +26,7 @@ public class CDomainValidationTest extends CWebDriver
     private static WebElement testingElement = null;
     private static WebElement checkedElement = null;
     private static final CInputDataDomain data = new CInputDataDomain();
+    private int secondsOfSleep = 600;
     
     @BeforeClass
     public static void PrepareTestEnviroment()
@@ -49,7 +50,7 @@ public class CDomainValidationTest extends CWebDriver
             testingElement.sendKeys(Keys.BACK_SPACE);
             testingElement.sendKeys(input);
             testingElement.sendKeys(Keys.TAB);
-            Thread.sleep(500);
+            Thread.sleep(secondsOfSleep);
 
             checkedElement = driver.findElement(By.xpath(data.checkingClassDomainXpathString));
             if(checkedElement.getAttribute(data.checkingAttribute).contains(data.checkingClassString))
@@ -75,7 +76,7 @@ public class CDomainValidationTest extends CWebDriver
             testingElement.sendKeys(Keys.BACK_SPACE);
             testingElement.sendKeys(input);
             testingElement.sendKeys(Keys.TAB);
-            Thread.sleep(500);
+            Thread.sleep(secondsOfSleep);
             
             checkedElement = driver.findElement(By.xpath(data.checkingClassDomainXpathString));
             if(!checkedElement.getAttribute(data.checkingAttribute).contains(data.checkingClassString))
