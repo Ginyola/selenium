@@ -20,6 +20,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class CPasswordValidationTest extends CWebDriver{
     
     private static WebDriver driver = null;
+    private static WebElement testingElement = null;
+    private static WebElement checkedElement = null;
+    private static final CInputData data = new CInputData();
     
     @BeforeClass
     public static void PrepareTestEnviroment()
@@ -27,47 +30,50 @@ public class CPasswordValidationTest extends CWebDriver{
         CPasswordValidationTest context = new CPasswordValidationTest();
         
         driver = new ChromeDriver();
-        driver.get("https://id.rambler.ru/account/registration");
+        driver.get(data.testingURL);
+        
+        testingElement = driver.findElement(By.id(data.testingIdString));
     }
     
     @Test
-    public void InputValidPassword()
+    public void InputValidPassword() throws InterruptedException
     {
-        WebElement testingElement = driver.findElement(By.id("newPassword"));
-        testingElement.clear();
-        testingElement.sendKeys("123456Qq");
-         
-        WebElement checkedElement = driver.findElement(By.xpath("//input[@id='newPassword']/.."));
-        assertFalse(checkedElement.getAttribute("class").contains("rui-Input-error"));
+        System.out.print("Testing valid passwords:\n");
+        for(String input : data.inputData)
+        {
+           
+            testingElement.sendKeys(input);
+            System.out.print("\t" + input + "\n");
+            checkedElement = driver.findElement(By.xpath(data.checkingClassXpathString));
+            assertFalse(input,checkedElement.getAttribute(data.checkingAttribute).contains(data.checkingClassString));
+            
+            testingElement.clear();
+        }
     }
     
     @Test
-    public void InputSpaceOnly()
+    public void InputInvalidPassword()
     {
-        WebElement testingElement = driver.findElement(By.id("newPassword"));
-        testingElement.clear();
         testingElement.sendKeys(" ");
-         
-        WebElement checkedElement = driver.findElement(By.xpath("//input[@id='newPassword']/.."));
-         
-        assertTrue(checkedElement.getAttribute("class").contains("rui-Input-error"));
+        checkedElement = driver.findElement(By.xpath(data.checkingClassXpathString));
+        assertTrue(checkedElement.getAttribute(data.checkingAttribute).contains(data.checkingClassString));
     }
     
     
     @Test
     public void InputEmptyString()
-    {
-        WebElement testingElement = driver.findElement(By.id("newPassword"));
+    {   
+        testingElement.sendKeys(" ");
         testingElement.clear();
-        
-        WebElement switchFocusElement = driver.findElement(By.id("newPassword"));
-        switchFocusElement.sendKeys(" ");
-        switchFocusElement.clear();
          
-        WebElement checkedElement = driver.findElement(By.xpath("//input[@id='newPassword']/.."));   
-        System.out.print(checkedElement.getAttribute("outerHTML"));
-        assertTrue(checkedElement.getAttribute("class").contains("rui-Input-error"));
-
+        checkedElement = driver.findElement(By.xpath(data.checkingClassXpathString));   
+        assertTrue(checkedElement.getAttribute(data.checkingAttribute).contains(data.checkingClassString));
+    }
+    
+    @After
+    public void CleanAfterTest()
+    {
+        testingElement.clear();
     }
     
     @AfterClass
