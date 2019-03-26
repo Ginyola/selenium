@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="DESKTOP-CIP3BEM" name="testDomainValidation.CDomainValidationTest" skipped="0" tests="5" time="28.827" timestamp="2019-03-25T20:35:00">
+<testsuite errors="0" failures="0" hostname="DESKTOP-CIP3BEM" name="testDomainValidation.CDomainValidationTest" skipped="0" tests="5" time="39.523" timestamp="2019-03-26T05:20:42">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="nb.wait.for.caches" value="true" />
@@ -41,7 +41,7 @@
     <property name="user.name" value="Костя" />
     <property name="copylibs.rebase" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testDomainValidation.CDomainValidationTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\git\selenium\2_autotests\build\test\results\TEST-testDomainValidation.CDomainValidationTest.xml crashfile=C:\git\selenium\2_autotests\build\junitvmwatcher6196725002283998111.properties propsfile=C:\git\selenium\2_autotests\build\junit5640437150170362134.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testDomainValidation.CDomainValidationTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\git\selenium\2_autotests\build\test\results\TEST-testDomainValidation.CDomainValidationTest.xml crashfile=C:\git\selenium\2_autotests\build\junitvmwatcher8723473032557095243.properties propsfile=C:\git\selenium\2_autotests\build\junit8572343586986060949.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="jnlp.descriptor" value="application" />
@@ -325,18 +325,18 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
   </properties>
-  <testcase classname="testDomainValidation.CDomainValidationTest" name="SpaceIsTrimmed" time="0.382" />
-  <testcase classname="testDomainValidation.CDomainValidationTest" name="InputInvalidDomain" time="15.53" />
-  <testcase classname="testDomainValidation.CDomainValidationTest" name="InputEmptyString" time="0.213" />
-  <testcase classname="testDomainValidation.CDomainValidationTest" name="DomainComboboxClick" time="0.186" />
-  <testcase classname="testDomainValidation.CDomainValidationTest" name="InputValidDomain" time="3.067" />
+  <testcase classname="testDomainValidation.CDomainValidationTest" name="SpaceIsTrimmed" time="0.43" />
+  <testcase classname="testDomainValidation.CDomainValidationTest" name="InputInvalidDomain" time="22.11" />
+  <testcase classname="testDomainValidation.CDomainValidationTest" name="InputEmptyString" time="0.17" />
+  <testcase classname="testDomainValidation.CDomainValidationTest" name="DomainComboboxClick" time="0.181" />
+  <testcase classname="testDomainValidation.CDomainValidationTest" name="InputValidDomain" time="7.003" />
   <system-out><![CDATA[Testing invalid mail login...
 Testing valid mail login...
 ]]></system-out>
-  <system-err><![CDATA[Starting ChromeDriver 73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72) on port 14829
+  <system-err><![CDATA[Starting ChromeDriver 73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72) on port 4653
 Only local connections are allowed.
 Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code.
-мар 25, 2019 11:35:05 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+мар 26, 2019 8:20:47 AM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: OSS
 ]]></system-err>
 </testsuite>

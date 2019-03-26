@@ -16,7 +16,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
- * Поправить чек-лист. Подсказка с планшетом
+ * 
  * @author Костя
  */
 public class CPasswordValidationTest extends CWebDriver

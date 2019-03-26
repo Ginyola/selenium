@@ -21,8 +21,12 @@ public class CInputDataDomain
     public static String[] inputValidDomainData = 
     {
         "123456Qq",
-        "PassWord123",
+        "PassWo rd123",
         "111111111222222233333344444556Qq",
+        "test.login364",
+        "test.l.ogin364",
+        "test-login364",
+        "test_login364"
     };
     
     public static String[] inputInvalidDomainData = 
@@ -34,9 +38,15 @@ public class CInputDataDomain
         "你好你好你好你好你好你好",
         "№123456Qq",
         "#123456Qq",
+        "test..login364",
         ":123456Qq",
         ";123456Qq",
         ">123456Qq",
+        "test@login364",
+        "test.login364.",
+        ".test.login364",
+        "test._login364",
+        "_test.login364_",
         "<123456Qq",
         "°‘|}♥♦♣♠•◘○-♦♠☺☻",
         "♥123456Qq",
